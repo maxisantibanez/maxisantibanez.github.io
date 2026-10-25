@@ -1,0 +1,276 @@
+{
+  "work": [
+    {
+      "id": "sistema-produccion-armaduras",
+      "title": {
+        "es": "Sistema de producción para una planta de armaduras de acero",
+        "en": "Production system for a steel rebar fabrication plant"
+      },
+      "context": {
+        "es": "Empresa mediana, fabricación de armaduras de acero para la construcción",
+        "en": "Mid-sized company, steel rebar fabrication for construction"
+      },
+      "problem": {
+        "es": "La planta dependía de un software de escritorio con licencia por vencer para despiezar, producir y despachar.",
+        "en": "The plant relied on licensed desktop software, close to expiring, to detail, produce and ship rebar."
+      },
+      "role": {
+        "es": "Desarrollador full stack: arquitectura, motor de cálculo, API, interfaz y despliegue.",
+        "en": "Full-stack developer: architecture, calculation engine, API, interface and deployment."
+      },
+      "impact": {
+        "es": "En uso en la planta: unifica el flujo del despiece al despacho, con cálculos validados contra casos reales.",
+        "en": "In use at the plant: unifies the workflow from detailing to shipping, with calculations validated against real cases."
+      },
+      "stack": [
+        "TypeScript",
+        "NestJS",
+        "React",
+        "MySQL",
+        "Docker"
+      ],
+      "year": "2026",
+      "diagram": [
+        {
+          "es": "Obra y planos",
+          "en": "Projects & drawings"
+        },
+        {
+          "es": "Despiece técnico",
+          "en": "Bar detailing"
+        },
+        {
+          "es": "Motor de cálculo",
+          "en": "Calc engine"
+        },
+        {
+          "es": "Producción y etiquetas",
+          "en": "Production & labels"
+        },
+        {
+          "es": "Despacho",
+          "en": "Shipping"
+        }
+      ]
+    },
+    {
+      "id": "erp-portal-b2b-indumentaria",
+      "title": {
+        "es": "ERP y portal B2B para indumentaria institucional",
+        "en": "ERP and B2B portal for institutional apparel"
+      },
+      "context": {
+        "es": "Empresa mediana, venta y confección de indumentaria institucional",
+        "en": "Mid-sized company, institutional apparel sales and manufacturing"
+      },
+      "problem": {
+        "es": "Cotizaciones, producción, inventario y pedidos institucionales se gestionaban por separado.",
+        "en": "Quotes, production, inventory and institutional orders were managed separately."
+      },
+      "role": {
+        "es": "Desarrollador full stack en un equipo de dos: portales B2B, inventario con reservas, catálogo y despliegue.",
+        "en": "Full-stack developer in a two-person team: B2B portals, inventory reservations, catalog and deployment."
+      },
+      "impact": {
+        "es": "En uso: centraliza ventas, producción e inventario, con trazabilidad de cada movimiento de stock.",
+        "en": "In use: centralizes sales, production and inventory, with traceability of every stock movement."
+      },
+      "stack": [
+        "Next.js",
+        "TypeScript",
+        "Laravel",
+        "MySQL",
+        "Docker"
+      ],
+      "year": "2026",
+      "diagram": [
+        {
+          "es": "Portal B2B",
+          "en": "B2B portal"
+        },
+        {
+          "es": "Cotización",
+          "en": "Quote"
+        },
+        {
+          "es": "Reserva de stock",
+          "en": "Stock reservation"
+        },
+        {
+          "es": "Producción",
+          "en": "Production"
+        },
+        {
+          "es": "Despacho",
+          "en": "Dispatch"
+        }
+      ]
+    },
+    {
+      "id": "erp-marketplace-autopartes",
+      "title": {
+        "es": "ERP para operar una tienda en un marketplace",
+        "en": "ERP to run a marketplace store"
+      },
+      "context": {
+        "es": "Empresa mediana, comercio minorista de productos técnicos",
+        "en": "Mid-sized company, technical products retail"
+      },
+      "problem": {
+        "es": "La carga de compatibilidades y el control del catálogo eran manuales, con errores y devoluciones.",
+        "en": "Compatibility loading and catalog control were manual, causing errors and returns."
+      },
+      "role": {
+        "es": "Desarrollador full stack: diseño y desarrollo completo.",
+        "en": "Full-stack developer: end-to-end design and development."
+      },
+      "impact": {
+        "es": "En uso: automatiza la carga de compatibilidades con revisión humana y da visibilidad operacional del negocio.",
+        "en": "In use: automates compatibility loading with human review and gives operational visibility of the business."
+      },
+      "stack": [
+        "Laravel",
+        "React",
+        "Inertia.js",
+        "MySQL",
+        "AWS"
+      ],
+      "year": "2026",
+      "diagram": [
+        {
+          "es": "API del marketplace",
+          "en": "Marketplace API"
+        },
+        {
+          "es": "Ingesta y caché",
+          "en": "Ingestion & cache"
+        },
+        {
+          "es": "Traducción de datos",
+          "en": "Data mapping"
+        },
+        {
+          "es": "Revisión y carga",
+          "en": "Review & load"
+        },
+        {
+          "es": "Dashboard",
+          "en": "Dashboard"
+        }
+      ]
+    }
+  ],
+  "openSource": [
+    {
+      "id": "licita-lab",
+      "title": "licita-lab",
+      "description": {
+        "es": "Descarga, busca y analiza compras públicas de Chile, con alertas de patrones inusuales.",
+        "en": "Downloads, searches and analyzes Chilean public procurement, flagging unusual patterns."
+      },
+      "stack": [
+        "Python",
+        "FastAPI",
+        "SQLite",
+        "JavaScript",
+        "Chart.js"
+      ],
+      "repo": "https://github.com/maxisantibanez/licita-lab",
+      "demo": null,
+      "year": "2026",
+      "hidden": false
+    }
+  ],
+  "internship": [
+    {
+      "id": "gestion-tesoreria-cobranza",
+      "title": {
+        "es": "Plataforma de cobranza y rendición de gastos en terreno",
+        "en": "Field collections and expense reporting platform"
+      },
+      "context": {
+        "es": "Grupo Automarco, holding automotriz e industrial",
+        "en": "Grupo Automarco, automotive and industrial holding"
+      },
+      "problem": {
+        "es": "Cobros y rendiciones dependían de comprobantes físicos y se digitaban varias veces a mano.",
+        "en": "Collections and expense reports relied on paper receipts and were re-entered by hand several times."
+      },
+      "role": {
+        "es": "Desarrollador full stack en mi práctica profesional, de punta a punta.",
+        "en": "Full-stack developer during my internship, end to end."
+      },
+      "impact": {
+        "es": "En uso: digitaliza cobros y rendiciones, con validación centralizada y registro auditable.",
+        "en": "In use: digitizes collections and expense reports, with centralized validation and an audit trail."
+      },
+      "stack": [
+        "PHP",
+        "MySQL",
+        "JavaScript",
+        "Google Sheets API"
+      ],
+      "year": "2026",
+      "diagram": [
+        {
+          "es": "Captura en terreno",
+          "en": "Field capture"
+        },
+        {
+          "es": "Validación",
+          "en": "Validation"
+        },
+        {
+          "es": "Aprobación",
+          "en": "Approval"
+        },
+        {
+          "es": "Sincronización",
+          "en": "Sync"
+        },
+        {
+          "es": "Conciliación",
+          "en": "Reconciliation"
+        }
+      ]
+    }
+  ],
+  "otherJobs": [
+    {
+      "id": "admision-udla",
+      "title": {
+        "es": "Ejecutivo de admisión y difusión",
+        "en": "Admissions and outreach executive"
+      },
+      "place": {
+        "es": "CS BPO / CGS, para UDLA",
+        "en": "CS BPO / CGS, for UDLA"
+      },
+      "year": "2024–26"
+    },
+    {
+      "id": "ticketmaster",
+      "title": {
+        "es": "Validador de eventos masivos",
+        "en": "Mass events validator"
+      },
+      "place": {
+        "es": "Ticketmaster",
+        "en": "Ticketmaster"
+      },
+      "year": "2025"
+    },
+    {
+      "id": "bodega",
+      "title": {
+        "es": "Bodeguero / picking",
+        "en": "Warehouse picker"
+      },
+      "place": {
+        "es": "Centro de distribución",
+        "en": "Distribution center"
+      },
+      "year": "2026"
+    }
+  ]
+}

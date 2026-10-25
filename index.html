@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Maximiliano Santibáñez Hernández · Desarrollador backend &amp; full stack</title>
+  <meta name="description" content="Desarrollador backend y full stack en Santiago, Chile. Integración de APIs, automatización de procesos y sistemas para empresas.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_CL">
+  <meta property="og:title" content="Maximiliano Santibáñez Hernández · Desarrollador backend &amp; full stack">
+  <meta property="og:description" content="Desarrollador backend y full stack en Santiago, Chile. Integración de APIs, automatización de procesos y sistemas para empresas.">
+  <meta name="theme-color" content="#FAFAF8">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23111111'/%3E%3Ccircle cx='22' cy='22' r='4' fill='%232F5BFF'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Geist:wght@400;500;600&family=Instrument+Serif&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip">Saltar al contenido</a>
+
+  <div class="layout">
+    <!-- Columna izquierda: edita aquí nombre, email, GitHub y LinkedIn -->
+    <header class="intro">
+      <div class="intro-top">
+        <h1 class="name">Maximiliano Santibáñez</h1>
+        <p class="role" data-i18n="hero.role">Desarrollador backend &amp; full stack</p>
+        <p class="tagline" data-i18n="hero.tagline">Conecto APIs, automatizo procesos y construyo el backend que los sostiene.</p>
+        <p class="status" data-i18n="hero.status">Disponible para proyectos freelance, práctica profesional y trabajo.</p>
+
+        <nav class="nav" aria-label="Secciones" data-i18n-attr="aria-label:nav.label">
+          <ul>
+            <li><a href="#work"><span class="nav-line" aria-hidden="true"></span><span data-i18n="nav.work">Trabajo con empresas</span></a></li>
+            <li><a href="#internship"><span class="nav-line" aria-hidden="true"></span><span data-i18n="nav.internship">Práctica profesional</span></a></li>
+            <li><a href="#oss"><span class="nav-line" aria-hidden="true"></span><span data-i18n="nav.oss">Open source</span></a></li>
+            <li><a href="#jobs"><span class="nav-line" aria-hidden="true"></span><span data-i18n="nav.jobs">Otros trabajos</span></a></li>
+            <li><a href="#about"><span class="nav-line" aria-hidden="true"></span><span data-i18n="nav.about">Sobre mí</span></a></li>
+            <li><a href="#contact"><span class="nav-line" aria-hidden="true"></span><span data-i18n="nav.contact">Contacto</span></a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="intro-bottom">
+        <div class="actions">
+          <a class="button" href="./cv.pdf" target="_blank" rel="noopener" data-i18n="cta.cv">Descargar CV</a>
+          <button class="lang-toggle" type="button" id="lang-toggle" aria-label="Cambiar a inglés" data-i18n="lang.toggle" data-i18n-attr="aria-label:lang.toggleLabel">EN</button>
+        </div>
+        <ul class="links" aria-label="Enlaces" data-i18n-attr="aria-label:links.label">
+          <li><a href="https://github.com/maxisantibanez" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/maximiliano-gabriel-santib%C3%A1%C3%B1ez-hern%C3%A1ndez-026277396/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="mailto:maximiliano.santibanez@mail.udp.cl">Email</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <div class="content">
+      <main id="main">
+        <p class="load-error" id="load-error" role="alert" hidden>
+          No se pudo cargar el contenido. Abre el sitio con un servidor local (python -m http.server).
+          / Content could not be loaded. Serve the site locally (python -m http.server).
+        </p>
+        <noscript><p class="load-error">Activa JavaScript para ver los proyectos. / Enable JavaScript to see the projects.</p></noscript>
+
+        <section class="section is-first" id="work" aria-labelledby="work-title">
+          <h2 class="section-title" id="work-title"><span class="section-num">(01)</span> <span data-i18n="work.title">Trabajo con empresas</span></h2>
+          <p class="section-note" data-i18n="work.note">Detalles omitidos por confidencialidad.</p>
+          <ol class="list work-list" id="work-list"></ol>
+        </section>
+
+        <section class="section" id="internship" aria-labelledby="internship-title">
+          <h2 class="section-title" id="internship-title"><span class="section-num">(02)</span> <span data-i18n="internship.title">Práctica profesional</span></h2>
+          <ol class="list" id="internship-list"></ol>
+        </section>
+
+        <section class="section" id="oss" aria-labelledby="oss-title">
+          <h2 class="section-title" id="oss-title"><span class="section-num">(03)</span> <span data-i18n="oss.title">Open source</span></h2>
+          <ol class="list oss-list" id="oss-list"></ol>
+        </section>
+
+        <section class="section" id="jobs" aria-labelledby="jobs-title">
+          <h2 class="section-title" id="jobs-title"><span class="section-num">(04)</span> <span data-i18n="jobs.title">Otros trabajos</span></h2>
+          <ol class="list jobs-list" id="jobs-list"></ol>
+        </section>
+
+        <section class="section" id="about" aria-labelledby="about-title">
+          <h2 class="section-title" id="about-title"><span class="section-num">(05)</span> <span data-i18n="about.title">Sobre mí</span></h2>
+          <p class="about-text" data-i18n="about.body"></p>
+        </section>
+
+        <section class="section contact" id="contact" aria-labelledby="contact-title">
+          <h2 class="section-title" id="contact-title"><span class="section-num">(06)</span> <span data-i18n="contact.title">Contacto</span></h2>
+          <p class="contact-lead" data-i18n="contact.lead"></p>
+          <a class="contact-email" href="mailto:maximiliano.santibanez@mail.udp.cl">maximiliano.santibanez@mail.udp.cl</a>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>© <span id="year"></span> Maximiliano Santibáñez Hernández</p>
+        <p>Santiago, CL · <span id="clock">--:--</span></p>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>
