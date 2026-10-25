@@ -43,7 +43,7 @@
 
       <div class="intro-bottom">
         <div class="actions">
-          <a class="button" href="./cv.pdf" target="_blank" rel="noopener" data-i18n="cta.cv">Descargar CV</a>
+          <a class="button" id="cv-open" href="./cv.pdf" target="_blank" rel="noopener" data-i18n="cta.cv">Ver CV</a>
           <button class="lang-toggle" type="button" id="lang-toggle" aria-label="Cambiar a inglés" data-i18n="lang.toggle" data-i18n-attr="aria-label:lang.toggleLabel">EN</button>
         </div>
         <ul class="links" aria-label="Enlaces" data-i18n-attr="aria-label:links.label">
@@ -101,5 +101,15 @@
       </footer>
     </div>
   </div>
+
+  <!-- Visor del CV: main.js lo abre si el navegador muestra PDFs; si no, el link abre una pestaña -->
+  <dialog class="cv-dialog" id="cv-dialog" aria-labelledby="cv-dialog-title">
+    <div class="cv-dialog-bar">
+      <h2 class="cv-dialog-title" id="cv-dialog-title" data-i18n="cv.title">CV</h2>
+      <a class="cv-dialog-action" href="./cv.pdf" download="CV_Maximiliano_Santibanez.pdf" data-i18n="cv.download">Descargar PDF</a>
+      <button class="cv-dialog-action" type="button" id="cv-close" data-i18n="cv.close">Cerrar</button>
+    </div>
+    <iframe class="cv-dialog-frame" id="cv-frame" title="CV" data-i18n-attr="title:cv.title"></iframe>
+  </dialog>
 </body>
 </html>

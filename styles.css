@@ -570,6 +570,70 @@ a {
   color: var(--accent);
 }
 
+/* ---------- Visor del CV ---------- */
+
+.cv-dialog {
+  width: min(56rem, calc(100vw - 2rem));
+  height: calc(100dvh - 2rem);
+  max-width: none;
+  max-height: none;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: var(--surface);
+  color: var(--text);
+}
+
+.cv-dialog[open] {
+  display: flex;
+  flex-direction: column;
+}
+
+.cv-dialog::backdrop {
+  background: rgb(17 17 17 / 0.55);
+}
+
+.cv-dialog-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 0.75rem 0.5rem 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.cv-dialog-title {
+  margin-right: auto;
+  font-size: var(--step--1);
+  font-weight: 500;
+}
+
+.cv-dialog-action {
+  min-height: 2.25rem;
+  padding: 0 0.75rem;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: var(--step--1);
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: border-color var(--fast) var(--ease), color var(--fast) var(--ease);
+}
+
+.cv-dialog-action:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.cv-dialog-frame {
+  flex: 1;
+  width: 100%;
+  border: 0;
+  background: var(--bg);
+}
+
 /* ---------- Footer ---------- */
 
 .footer {

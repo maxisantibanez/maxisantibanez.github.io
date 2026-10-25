@@ -215,6 +215,28 @@
     });
   }
 
+  /* ---------- Visor del CV ---------- */
+
+  // Abre el PDF en un diálogo dentro de la página. Si el navegador no muestra PDFs
+  // embebidos (la mayoría de los móviles), el link sigue su curso y abre una pestaña.
+  function setupCvViewer() {
+    const link = document.getElementById("cv-open");
+    const dialog = document.getElementById("cv-dialog");
+    const frame = document.getElementById("cv-frame");
+    if (!dialog?.showModal || !navigator.pdfViewerEnabled) return;
+
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      if (!frame.getAttribute("src")) frame.src = link.getAttribute("href");
+      dialog.showModal();
+    });
+    document.getElementById("cv-close").addEventListener("click", () => dialog.close());
+    // clic en el fondo oscuro cierra
+    dialog.addEventListener("click", (event) => {
+      if (event.target === dialog) dialog.close();
+    });
+  }
+
   /* ---------- Navegación activa ---------- */
 
   function setupActiveNav() {
@@ -295,6 +317,7 @@
     state.lang = readStoredLang() ?? "es";
     render();
     setupToggle();
+    setupCvViewer();
     setupActiveNav(); // después de render: ya se sabe qué secciones están visibles
   }
 
