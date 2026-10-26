@@ -344,7 +344,7 @@ a {
 @media (min-width: 640px) {
   .case,
   .oss-item {
-    grid-template-columns: 5.5rem minmax(0, 1fr);
+    grid-template-columns: 8rem minmax(0, 1fr);
   }
 }
 
@@ -353,6 +353,7 @@ a {
   font-size: var(--step--1);
   color: var(--muted);
   padding-top: 0.2rem;
+  line-height: 1.35;
 }
 
 .item-body {

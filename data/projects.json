@@ -29,7 +29,10 @@
         "MySQL",
         "Docker"
       ],
-      "year": "2026",
+      "year": {
+        "es": "Oct 2026 – presente",
+        "en": "Oct 2026 – present"
+      },
       "diagram": [
         {
           "es": "Obra y planos",
@@ -83,7 +86,10 @@
         "MySQL",
         "Docker"
       ],
-      "year": "2026",
+      "year": {
+        "es": "Dic 2025 – presente",
+        "en": "Dec 2025 – present"
+      },
       "diagram": [
         {
           "es": "Portal B2B",
@@ -137,7 +143,10 @@
         "MySQL",
         "AWS"
       ],
-      "year": "2026",
+      "year": {
+        "es": "Sep 2026 – presente",
+        "en": "Sep 2026 – present"
+      },
       "diagram": [
         {
           "es": "Mercado Libre API",
@@ -212,7 +221,10 @@
         "JavaScript",
         "Google Sheets API"
       ],
-      "year": "2026",
+      "year": {
+        "es": "Jul – Sep 2026",
+        "en": "Jul – Sep 2026"
+      },
       "diagram": [
         {
           "es": "Captura en terreno",

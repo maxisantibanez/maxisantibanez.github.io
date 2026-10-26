@@ -118,7 +118,7 @@
       const titleId = `case-${p.id}`;
 
       return el("li", {}, el("article", { class: "case", "aria-labelledby": titleId }, [
-        el("p", { class: "item-year", text: p.year }),
+        el("p", { class: "item-year", text: tr(p.year) }),
         el("div", { class: "item-body" }, [
           el("h3", { class: "item-title", id: titleId, text: tr(p.title) }),
           el("p", { class: "item-context", text: tr(p.context) }),
@@ -154,7 +154,7 @@
         ]);
 
       return el("li", {}, el("article", { class: "oss-item" }, [
-        el("p", { class: "item-year", text: p.year }),
+        el("p", { class: "item-year", text: tr(p.year) }),
         el("div", { class: "item-body" }, [
           el("h3", { class: "item-title" }, title),
           el("p", { class: "oss-desc", text: tr(p.description) }),
@@ -169,7 +169,7 @@
     const list = document.getElementById("jobs-list");
     list.replaceChildren(...jobs.map((job) =>
       el("li", { class: "job" }, [
-        el("span", { class: "job-year", text: job.year }),
+        el("span", { class: "job-year", text: tr(job.year) }),
         el("span", { class: "job-title", text: tr(job.title) }),
         el("span", { class: "job-place", text: tr(job.place) }),
       ])
