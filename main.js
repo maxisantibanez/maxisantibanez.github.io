@@ -80,9 +80,89 @@
     });
   }
 
-  /* ---------- Mini-diagrama ---------- */
+  /* ---------- Mini-diagrama de arquitectura ---------- */
 
-  // Flecha entre pasos; en móvil el CSS la gira hacia abajo
+  // Colores por capa de arquitectura
+  const LAYER_COLORS = {
+    frontend: "#2F5BFF",  // azul acento
+    api:      "#111111",  // texto principal
+    db:       "#7A5200",  // naranja oscuro legible
+    ext:      "#555555",  // muted
+  };
+
+  // Grilla: columnas 0-3 → 60-420, filas 0-2 → 28-88
+  const ARCH_W = 480;
+  const ARCH_H = 120;
+  const COL_X = [60, 180, 300, 420];   // x centros de cada columna
+  const ROW_Y = [28, 64, 100];          // y centros de cada fila
+
+  function archDiagram(arch) {
+    const nodeMap = new Map(arch.nodes.map((n) => [n.id, n]));
+
+    const root = svg("svg", {
+      class: "arch-svg",
+      viewBox: `0 0 ${ARCH_W} ${ARCH_H}`,
+      role: "img",
+      "aria-label": t("case.diagram"),
+    });
+
+    // Aristas (primero, debajo de los nodos)
+    arch.edges.forEach(({ from, to }) => {
+      const a = nodeMap.get(from);
+      const b = nodeMap.get(to);
+      if (!a || !b) return;
+      const x1 = COL_X[a.x], y1 = ROW_Y[a.y];
+      const x2 = COL_X[b.x], y2 = ROW_Y[b.y];
+      // Bézier suave horizontal
+      const mx = (x1 + x2) / 2;
+      root.append(svg("path", {
+        class: "arch-edge",
+        d: `M${x1},${y1} C${mx},${y1} ${mx},${y2} ${x2},${y2}`,
+        fill: "none",
+      }));
+    });
+
+    // Nodos
+    arch.nodes.forEach((n) => {
+      const cx = COL_X[n.x];
+      const cy = ROW_Y[n.y];
+      const label = tr(n.label);
+      const color = LAYER_COLORS[n.layer] ?? "#555555";
+
+      const g = svg("g", { class: "arch-node" });
+
+      // Círculo del nodo
+      g.append(svg("circle", {
+        cx,
+        cy,
+        r: 6,
+        fill: color,
+        class: "arch-dot",
+      }));
+
+      // Etiqueta: arriba si fila 0, abajo si fila 2, a la derecha si fila central (o por posición relativa)
+      const isTop = n.y === 0;
+      const isBottom = n.y === 2;
+      const textY = isTop ? cy - 11 : isBottom ? cy + 18 : cy + 18;
+      const textAnchor = "middle";
+
+      const textEl = svg("text", {
+        x: cx,
+        y: textY,
+        "text-anchor": textAnchor,
+        class: "arch-label",
+        fill: color,
+      });
+      textEl.textContent = label;
+      g.append(textEl);
+
+      root.append(g);
+    });
+
+    return root;
+  }
+
+  // Fallback: diagrama lineal legacy (para proyectos sin arch)
   function flowArrow() {
     const root = svg("svg", { class: "flow-arrow", viewBox: "0 0 20 10", width: 20, height: 10, "aria-hidden": "true", focusable: "false" });
     root.append(svg("line", { x1: 0, y1: 5, x2: 14, y2: 5 }));
@@ -90,8 +170,6 @@
     return root;
   }
 
-  // Pasos en una línea cada uno; la flecha va pegada al final de la caja,
-  // así una fila nueva siempre empieza con una caja
   function diagram(steps) {
     return el("ol", { class: "flow", "aria-label": t("case.diagram") }, steps.map((step, i) =>
       el("li", { class: "flow-step" }, [
@@ -128,6 +206,7 @@
             field("case.impact", p.impact),
           ]),
           p.diagram?.length ? diagram(p.diagram) : null,
+          p.arch ? archDiagram(p.arch) : null,
           p.stack?.length ? stackList(p.stack) : null,
         ]),
       ]));

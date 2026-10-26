@@ -448,6 +448,32 @@ a {
   fill: var(--muted);
 }
 
+/* Diagrama de arquitectura SVG */
+.arch-svg {
+  display: block;
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  margin-top: 1.5rem;
+  overflow: visible;
+}
+
+.arch-edge {
+  stroke: var(--line);
+  stroke-width: 1.5;
+  marker-end: none;
+}
+
+.arch-dot {
+  /* colores inline vía JS */
+}
+
+.arch-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 500;
+}
+
 /* Móvil: vertical, flechas hacia abajo */
 @media (max-width: 639px) {
   .flow {
