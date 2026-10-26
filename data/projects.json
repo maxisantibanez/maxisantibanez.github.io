@@ -68,17 +68,18 @@
         "en": "Quotes, production, inventory and institutional orders were managed separately."
       },
       "role": {
-        "es": "Desarrollador full stack en un equipo de dos: portales B2B, inventario con reservas, catálogo y despliegue.",
-        "en": "Full-stack developer in a two-person team: B2B portals, inventory reservations, catalog and deployment."
+        "es": "Desarrollador full stack en un equipo de dos: integraciones con Odoo, portales B2B, inventario con reservas, catálogo y despliegue.",
+        "en": "Full-stack developer in a two-person team: Odoo integrations, B2B portals, inventory reservations, catalog and deployment."
       },
       "impact": {
-        "es": "En uso: centraliza ventas, producción e inventario, con trazabilidad de cada movimiento de stock.",
-        "en": "In use: centralizes sales, production and inventory, with traceability of every stock movement."
+        "es": "En uso: centraliza ventas, producción e inventario con Odoo, con trazabilidad de cada movimiento de stock.",
+        "en": "In use: centralizes sales, production and inventory with Odoo, with traceability of every stock movement."
       },
       "stack": [
         "Next.js",
         "TypeScript",
         "Laravel",
+        "Odoo",
         "MySQL",
         "Docker"
       ],
@@ -89,8 +90,8 @@
           "en": "B2B portal"
         },
         {
-          "es": "Cotización",
-          "en": "Quote"
+          "es": "Integración con Odoo",
+          "en": "Odoo integration"
         },
         {
           "es": "Reserva de stock",
@@ -121,14 +122,15 @@
         "en": "Compatibility loading and catalog control were manual, causing errors and returns."
       },
       "role": {
-        "es": "Desarrollador full stack: diseño y desarrollo completo.",
-        "en": "Full-stack developer: end-to-end design and development."
+        "es": "Desarrollador full stack: diseño y desarrollo completo de automatizaciones con Mercado Libre API.",
+        "en": "Full-stack developer: end-to-end design and development of automations with the Mercado Libre API."
       },
       "impact": {
-        "es": "En uso: automatiza la carga de compatibilidades con revisión humana y da visibilidad operacional del negocio.",
-        "en": "In use: automates compatibility loading with human review and gives operational visibility of the business."
+        "es": "En uso: automatiza la carga de compatibilidades vía Mercado Libre API con revisión humana y da visibilidad operacional del negocio.",
+        "en": "In use: automates compatibility loading via the Mercado Libre API with human review and gives operational visibility of the business."
       },
       "stack": [
+        "Mercado Libre API",
         "Laravel",
         "React",
         "Inertia.js",
@@ -138,8 +140,8 @@
       "year": "2026",
       "diagram": [
         {
-          "es": "API del marketplace",
-          "en": "Marketplace API"
+          "es": "Mercado Libre API",
+          "en": "Mercado Libre API"
         },
         {
           "es": "Ingesta y caché",
