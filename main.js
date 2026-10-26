@@ -252,24 +252,39 @@
         else a.removeAttribute("aria-current");
       });
     };
+    const firstId = [...links.keys()][0];
+    const lastId = [...links.keys()].at(-1);
+    const atTop = () => window.scrollY < 80;
     const atBottom = () =>
       window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
-    const lastId = [...links.keys()].at(-1);
 
     const observer = new IntersectionObserver((entries) => {
-      if (atBottom()) return;
+      if (atTop()) {
+        if (firstId) setActive(firstId);
+        return;
+      }
+      if (atBottom()) {
+        if (lastId) setActive(lastId);
+        return;
+      }
       entries.forEach((entry) => {
         if (entry.isIntersecting) setActive(entry.target.id);
       });
-    }, { rootMargin: "-35% 0px -60% 0px" });
+    }, { rootMargin: "-20% 0px -60% 0px" });
+
     links.forEach((_, id) => {
       const section = document.getElementById(id);
       if (section) observer.observe(section);
     });
 
-    // La última sección es corta y nunca cruza la franja: se marca al llegar al final
+    if (firstId) setActive(firstId);
+
     window.addEventListener("scroll", () => {
-      if (atBottom()) setActive(lastId);
+      if (atTop()) {
+        if (firstId) setActive(firstId);
+      } else if (atBottom()) {
+        if (lastId) setActive(lastId);
+      }
     }, { passive: true });
   }
 

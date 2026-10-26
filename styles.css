@@ -2,7 +2,7 @@
   --bg: #FAFAF8;
   --surface: #FFFFFF;
   --text: #111111;
-  --muted: #6B6B6B;
+  --muted: #555555;
   --line: #E6E6E2;
   --accent: #2F5BFF;
 
@@ -10,7 +10,7 @@
   --sans: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
-  --step--1: 0.8125rem;
+  --step--1: 0.875rem;
   --step-0: clamp(1rem, 0.97rem + 0.15vw, 1.0625rem);
   --step-1: clamp(1.125rem, 1.08rem + 0.2vw, 1.25rem);
   --step-2: clamp(1.75rem, 1.5rem + 1vw, 2.25rem);
@@ -99,8 +99,8 @@ a {
 @media (min-width: 1024px) {
   .layout {
     display: grid;
-    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-    gap: 5rem;
+    grid-template-columns: minmax(0, 4.2fr) minmax(0, 7.8fr);
+    gap: 4rem;
   }
 
   .intro {
@@ -413,13 +413,14 @@ a {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.625rem 0;
+  gap: 0.625rem 0.25rem;
   margin-top: 1.5rem;
 }
 
 .flow-step {
-  display: flex;
+  display: inline-flex;
   align-items: center;
+  white-space: nowrap;
 }
 
 .flow-box {
