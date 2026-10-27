@@ -71,8 +71,8 @@
         "en": "In daily use by 2 catalog operators: automates technical compatibility publishing via Mercado Libre API with human review, reducing manual errors and providing operational visibility."
       },
       "challenge": {
-        "es": "Gestionar más de 20.000 publicaciones vía API respetando los límites de tasa de Mercado Libre, construyendo una cola de trabajos asíncrona con reintentos exponenciales y procesamiento idempotente para garantizar cero pérdida de datos.",
-        "en": "Managing 20,000+ listings via API within Mercado Libre rate limits, building an asynchronous job queue with exponential backoff and idempotent processing to guarantee zero data loss."
+        "es": "Gestionar más de 20.000 publicaciones vía API respetando los límites de tasa de Mercado Libre, construyendo una cola de trabajos asíncrona con reintentos exponenciales y procesamiento idempotente para evitar pérdida de datos.",
+        "en": "Managing 20,000+ listings via API within Mercado Libre rate limits, building an asynchronous job queue with exponential backoff and idempotent processing to prevent data loss."
       },
       "stack": [
         "Inertia.js",
@@ -199,7 +199,6 @@
         "en": "Connecting disparate internal systems with Google Sheets as the accounting layer, implementing duplicate detection and automated spreadsheet reconciliation to prevent discrepancies across field expense reports."
       },
       "stack": [
-        "REST API",
         "OAuth 2.0"
       ],
       "year": {
