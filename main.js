@@ -199,6 +199,7 @@
             field("case.problem", p.problem),
             field("case.role", p.role),
             field("case.impact", p.impact),
+            p.challenge ? field("case.challenge", p.challenge) : null,
           ]),
           p.diagram?.length ? diagram(p.diagram) : null,
           p.arch ? archDiagram(p.arch) : null,

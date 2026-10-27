@@ -22,6 +22,10 @@
         "es": "En producción en planta desde oct 2026, con al menos 5 operadores y jefaturas usando el sistema: unifica el flujo del despiece al despacho, con cálculos validados contra casos reales.",
         "en": "In production at the plant since Oct 2026, with at least 5 operators and managers using the system: unifies the workflow from detailing to shipping, with calculations validated against real cases."
       },
+      "challenge": {
+        "es": "Aprender la normativa y las fórmulas del rubro desde cero para diseñar un motor de cálculo que los mismos maestros de obra validaron contra años de experiencia en planta.",
+        "en": "Learning rebar industry standards and formulas from scratch to build a calculation engine that plant veterans would validate against years of hands-on production experience."
+      },
       "stack": [
         "TypeScript",
         "NestJS",
@@ -71,6 +75,10 @@
         "es": "En uso activo por más de 10 personas entre ventas, inventario y confección: centraliza pedidos B2B e integra inventario con Odoo, con trazabilidad de cada movimiento de stock.",
         "en": "Actively used by 10+ staff across sales, inventory, and manufacturing: centralizes B2B orders with Odoo inventory sync and full stock traceability."
       },
+      "challenge": {
+        "es": "Modelar y digitalizar procesos que existían solo en papel y en la cabeza de las personas — cotizaciones, reservas de stock, producción — sin interrumpir la operación diaria mientras se desarrollaba.",
+        "en": "Modeling and digitizing workflows that existed only on paper and in people's heads — quotes, stock reservations, production — without disrupting daily operations during development."
+      },
       "stack": [
         "Next.js",
         "TypeScript",
@@ -118,6 +126,10 @@
       "impact": {
         "es": "En uso diario por 2 operadores del catálogo: automatiza la carga de compatibilidades técnicas vía Mercado Libre API con revisión humana, reduciendo errores manuales y dando visibilidad operacional.",
         "en": "In daily use by 2 catalog operators: automates technical compatibility publishing via Mercado Libre API with human review, reducing manual errors and providing operational visibility."
+      },
+      "challenge": {
+        "es": "Gestionar más de 20.000 publicaciones vía API respetando los límites de Mercado Libre, construir un pipeline de procesamiento masivo sin pérdida de datos, y convencer al equipo de que la automatización era más confiable que la carga manual.",
+        "en": "Managing 20,000+ listings via API within Mercado Libre's rate limits, building a bulk processing pipeline without data loss, and earning the team's trust that automation was more reliable than manual uploads."
       },
       "stack": [
         "Mercado Libre API",
@@ -192,6 +204,10 @@
       "impact": {
         "es": "En uso: digitaliza la rendición de gastos de hasta 15 vendedores en terreno y centraliza la validación contable para 3 analistas de cobranza, con registro auditable.",
         "en": "In production: digitizes expense reporting for up to 15 field reps and centralizes validation for 3 collections analysts with a full audit trail."
+      },
+      "challenge": {
+        "es": "Integrar sistemas internos desconectados — incluido Google Sheets como capa contable — y diseñar una interfaz que vendedores en terreno pudieran usar desde el celular sin capacitación extensa.",
+        "en": "Integrating disconnected internal systems — including Google Sheets as the accounting layer — and designing an interface that field staff could use from their phones without extensive training."
       },
       "stack": [
         "PHP",
