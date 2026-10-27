@@ -473,7 +473,7 @@ a {
 .arch-svg {
   display: block;
   width: 100%;
-  max-width: 480px;
+  max-width: 500px;
   height: auto;
   margin-top: 1.5rem;
   overflow: visible;

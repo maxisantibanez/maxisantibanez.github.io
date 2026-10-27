@@ -92,9 +92,9 @@
 
   // Grilla: 4 columnas × 3 filas; viewBox con margen generoso para las etiquetas
   // Columna central fila media → coordenadas absolutas
-  const ARCH_W = 480;
+  const ARCH_W = 500;
   const ARCH_H = 140;
-  const COL_X = [55, 175, 305, 425];   // x centros por columna
+  const COL_X = [60, 195, 325, 445];   // x centros por columna
   const ROW_Y = [36, 70, 104];          // y centros por fila
 
   function archDiagram(arch) {
@@ -142,8 +142,9 @@
       }));
 
       // Posición de la etiqueta según fila:
-      // fila 0 → encima del nodo; fila 1 → debajo; fila 2 → debajo
-      const textY = n.y === 0 ? cy - 10 : cy + 16;
+      // labelPos explícito tiene prioridad; si no: fila 0 → encima; fila 1/2 → debajo
+      const isTop = n.labelPos ? n.labelPos === "top" : n.y === 0;
+      const textY = isTop ? cy - 11 : cy + 17;
 
       const textEl = svg("text", {
         x: cx,

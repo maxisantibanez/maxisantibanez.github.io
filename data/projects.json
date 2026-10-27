@@ -71,8 +71,8 @@
         "en": "In daily use by 2 catalog operators: automates technical compatibility publishing via Mercado Libre API with human review, reducing manual errors and providing operational visibility."
       },
       "challenge": {
-        "es": "Gestionar más de 20.000 publicaciones vía API respetando los límites de Mercado Libre y construir un pipeline de procesamiento masivo sin pérdida de datos.",
-        "en": "Managing 20,000+ listings via API within Mercado Libre's rate limits and building a bulk processing pipeline without data loss."
+        "es": "Gestionar más de 20.000 publicaciones vía API respetando los límites de tasa de Mercado Libre, construyendo una cola de trabajos asíncrona con reintentos exponenciales y procesamiento idempotente para garantizar cero pérdida de datos.",
+        "en": "Managing 20,000+ listings via API within Mercado Libre rate limits, building an asynchronous job queue with exponential backoff and idempotent processing to guarantee zero data loss."
       },
       "stack": [
         "Inertia.js",
@@ -84,7 +84,7 @@
       },
       "arch": {
         "nodes": [
-          { "id": "meli",   "label": { "es": "Mercado Libre API", "en": "Mercado Libre API" }, "x": 0, "y": 1, "layer": "ext"      },
+          { "id": "meli",   "label": { "es": "Mercado Libre API", "en": "Mercado Libre API" }, "x": 0, "y": 1, "layer": "ext", "labelPos": "top" },
           { "id": "worker", "label": { "es": "Laravel worker",    "en": "Laravel worker"    }, "x": 1, "y": 1, "layer": "api"      },
           { "id": "cache",  "label": { "es": "Caché DB",          "en": "Cache DB"          }, "x": 2, "y": 0, "layer": "db"       },
           { "id": "mysql",  "label": { "es": "MySQL",             "en": "MySQL"             }, "x": 2, "y": 2, "layer": "db"       },
@@ -195,14 +195,12 @@
         "en": "In production: digitizes expense reporting for up to 15 field reps and centralizes validation for 3 collections analysts with a full audit trail."
       },
       "challenge": {
-        "es": "Integrar sistemas internos desconectados — incluido Google Sheets como capa contable — y diseñar una interfaz que vendedores en terreno pudieran usar desde el celular sin capacitación extensa.",
-        "en": "Integrating disconnected internal systems — including Google Sheets as the accounting layer — and designing an interface that field staff could use from their phones without extensive training."
+        "es": "Conectar sistemas internos heterogéneos con Google Sheets como capa contable, implementando validación de duplicados y conciliación automática contra la planilla para evitar inconsistencias en las rendiciones de terreno.",
+        "en": "Connecting disparate internal systems with Google Sheets as the accounting layer, implementing duplicate detection and automated spreadsheet reconciliation to prevent discrepancies across field expense reports."
       },
       "stack": [
-        "PHP",
-        "MySQL",
-        "JavaScript",
-        "Google Sheets API"
+        "REST API",
+        "OAuth 2.0"
       ],
       "year": {
         "es": "Jul – Sep 2026",
