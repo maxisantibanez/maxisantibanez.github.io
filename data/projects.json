@@ -1,59 +1,6 @@
 {
   "work": [
     {
-      "id": "sistema-produccion-armaduras",
-      "title": {
-        "es": "Sistema de producción para una planta de armaduras de acero",
-        "en": "Production system for a steel rebar fabrication plant"
-      },
-      "context": {
-        "es": "Empresa mediana, fabricación de armaduras de acero para la construcción",
-        "en": "Mid-sized company, steel rebar fabrication for construction"
-      },
-      "problem": {
-        "es": "La planta dependía de un software de escritorio con licencia por vencer para despiezar, producir y despachar.",
-        "en": "The plant relied on licensed desktop software, close to expiring, to detail, produce and ship rebar."
-      },
-      "role": {
-        "es": "Desarrollador full stack: arquitectura, motor de cálculo, API, interfaz y despliegue.",
-        "en": "Full-stack developer: architecture, calculation engine, API, interface and deployment."
-      },
-      "impact": {
-        "es": "En producción en planta desde oct 2026, con al menos 5 operadores y jefaturas usando el sistema: unifica el flujo del despiece al despacho, con cálculos validados contra casos reales.",
-        "en": "In production at the plant since Oct 2026, with at least 5 operators and managers using the system: unifies the workflow from detailing to shipping, with calculations validated against real cases."
-      },
-      "challenge": {
-        "es": "Aprender la normativa y las fórmulas del rubro desde cero para diseñar un motor de cálculo que los mismos maestros de obra validaron contra años de experiencia en planta.",
-        "en": "Learning rebar industry standards and formulas from scratch to build a calculation engine that plant veterans would validate against years of hands-on production experience."
-      },
-      "stack": [
-        "TypeScript",
-        "NestJS",
-        "React",
-        "MySQL",
-        "Docker"
-      ],
-      "year": {
-        "es": "Oct 2026 – presente",
-        "en": "Oct 2026 – present"
-      },
-      "arch": {
-        "nodes": [
-          { "id": "ui",      "label": { "es": "React UI",         "en": "React UI"            }, "x": 0, "y": 1, "layer": "frontend" },
-          { "id": "api",     "label": { "es": "NestJS API",       "en": "NestJS API"          }, "x": 1, "y": 1, "layer": "api"      },
-          { "id": "engine",  "label": { "es": "Motor de cálculo", "en": "Calculation engine"  }, "x": 2, "y": 0, "layer": "api"      },
-          { "id": "db",      "label": { "es": "MySQL",            "en": "MySQL"               }, "x": 2, "y": 2, "layer": "db"       },
-          { "id": "labels",  "label": { "es": "Etiquetas PDF",    "en": "PDF labels"          }, "x": 3, "y": 0, "layer": "api"      }
-        ],
-        "edges": [
-          { "from": "ui",     "to": "api"    },
-          { "from": "api",    "to": "engine" },
-          { "from": "api",    "to": "db"     },
-          { "from": "engine", "to": "labels" }
-        ]
-      }
-    },
-    {
       "id": "erp-portal-b2b-indumentaria",
       "title": {
         "es": "ERP y portal B2B para indumentaria institucional",
@@ -80,11 +27,7 @@
         "en": "Modeling and digitizing workflows that existed only on paper and in people's heads — quotes, stock reservations, production — without disrupting daily operations during development."
       },
       "stack": [
-        "Next.js",
         "TypeScript",
-        "Laravel",
-        "Odoo",
-        "MySQL",
         "Docker"
       ],
       "year": {
@@ -128,15 +71,11 @@
         "en": "In daily use by 2 catalog operators: automates technical compatibility publishing via Mercado Libre API with human review, reducing manual errors and providing operational visibility."
       },
       "challenge": {
-        "es": "Gestionar más de 20.000 publicaciones vía API respetando los límites de Mercado Libre, construir un pipeline de procesamiento masivo sin pérdida de datos, y convencer al equipo de que la automatización era más confiable que la carga manual.",
-        "en": "Managing 20,000+ listings via API within Mercado Libre's rate limits, building a bulk processing pipeline without data loss, and earning the team's trust that automation was more reliable than manual uploads."
+        "es": "Gestionar más de 20.000 publicaciones vía API respetando los límites de Mercado Libre y construir un pipeline de procesamiento masivo sin pérdida de datos.",
+        "en": "Managing 20,000+ listings via API within Mercado Libre's rate limits and building a bulk processing pipeline without data loss."
       },
       "stack": [
-        "Mercado Libre API",
-        "Laravel",
-        "React",
         "Inertia.js",
-        "MySQL",
         "AWS"
       ],
       "year": {
@@ -157,6 +96,56 @@
           { "from": "worker", "to": "mysql"  },
           { "from": "cache",  "to": "dash"   },
           { "from": "mysql",  "to": "dash"   }
+        ]
+      }
+    },
+    {
+      "id": "sistema-produccion-armaduras",
+      "title": {
+        "es": "Sistema de producción para una planta de armaduras de acero",
+        "en": "Production system for a steel rebar fabrication plant"
+      },
+      "context": {
+        "es": "Empresa mediana, fabricación de armaduras de acero para la construcción",
+        "en": "Mid-sized company, steel rebar fabrication for construction"
+      },
+      "problem": {
+        "es": "La planta dependía de un software de escritorio con licencia por vencer para despiezar, producir y despachar.",
+        "en": "The plant relied on licensed desktop software, close to expiring, to detail, produce and ship rebar."
+      },
+      "role": {
+        "es": "Desarrollador full stack: arquitectura, motor de cálculo, API, interfaz y despliegue.",
+        "en": "Full-stack developer: architecture, calculation engine, API, interface and deployment."
+      },
+      "impact": {
+        "es": "En producción en planta desde oct 2026, con al menos 5 operadores y jefaturas usando el sistema: unifica el flujo del despiece al despacho, con cálculos validados contra casos reales.",
+        "en": "In production at the plant since Oct 2026, with at least 5 operators and managers using the system: unifies the workflow from detailing to shipping, with calculations validated against real cases."
+      },
+      "challenge": {
+        "es": "Modelar la normativa y fórmulas geométricas del rubro para diseñar un motor de cálculo desde cero, validándolo con una batería de pruebas automatizadas contra despieces históricos reales de la planta antes de pasar a producción.",
+        "en": "Modeling industry geometric formulas and structural standards to build a custom calculation engine from scratch, validated with automated test suites against historical plant detailing cases before entering production."
+      },
+      "stack": [
+        "TypeScript",
+        "Docker"
+      ],
+      "year": {
+        "es": "Oct 2026 – presente",
+        "en": "Oct 2026 – present"
+      },
+      "arch": {
+        "nodes": [
+          { "id": "ui",      "label": { "es": "React UI",         "en": "React UI"            }, "x": 0, "y": 1, "layer": "frontend" },
+          { "id": "api",     "label": { "es": "NestJS API",       "en": "NestJS API"          }, "x": 1, "y": 1, "layer": "api"      },
+          { "id": "engine",  "label": { "es": "Motor de cálculo", "en": "Calculation engine"  }, "x": 2, "y": 0, "layer": "api"      },
+          { "id": "db",      "label": { "es": "MySQL",            "en": "MySQL"               }, "x": 2, "y": 2, "layer": "db"       },
+          { "id": "labels",  "label": { "es": "Etiquetas PDF",    "en": "PDF labels"          }, "x": 3, "y": 0, "layer": "api"      }
+        ],
+        "edges": [
+          { "from": "ui",     "to": "api"    },
+          { "from": "api",    "to": "engine" },
+          { "from": "api",    "to": "db"     },
+          { "from": "engine", "to": "labels" }
         ]
       }
     }

@@ -109,9 +109,15 @@ a {
     height: 100vh;
     height: 100dvh;
     overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
     justify-content: space-between;
-    padding: 4rem 0 2.5rem;
+    padding: clamp(2.5rem, 5vh, 4rem) 0 clamp(1.5rem, 3vh, 2.5rem);
     border-bottom: 0;
+  }
+
+  .intro::-webkit-scrollbar {
+    display: none;
   }
 
   .content {
@@ -131,19 +137,19 @@ a {
 }
 
 .role {
-  margin-top: 1rem;
+  margin-top: 0.75rem;
   font-size: var(--step-1);
   font-weight: 500;
 }
 
 .tagline {
-  margin-top: 1rem;
+  margin-top: 0.75rem;
   max-width: 34ch;
   color: var(--muted);
 }
 
 .status {
-  margin-top: 1.25rem;
+  margin-top: 0.875rem;
   max-width: 38ch;
   font-size: var(--step--1);
   color: var(--muted);
@@ -161,7 +167,7 @@ a {
 
   .nav {
     display: block;
-    margin-top: 2rem;
+    margin-top: clamp(1rem, 2vh, 1.75rem);
   }
 }
 
@@ -226,11 +232,13 @@ a {
 }
 
 .lang-toggle {
-  min-width: 2.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
   min-height: 2.75rem;
   padding: 0 0.75rem;
   background: transparent;
-  color: var(--text);
+  color: var(--muted);
   font-family: var(--mono);
   font-size: var(--step--1);
   border: 1px solid var(--line);
@@ -241,7 +249,20 @@ a {
 
 .lang-toggle:hover {
   border-color: var(--accent);
-  color: var(--accent);
+}
+
+.lang-opt {
+  color: var(--muted);
+  transition: color var(--fast) var(--ease);
+}
+
+.lang-opt.is-active {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.lang-sep {
+  color: var(--line);
 }
 
 .links {
@@ -678,19 +699,19 @@ a {
 /* Detalle 2: aparición suave de secciones, solo con soporte nativo */
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
-    .section {
-      /* Solo rango de entrada; después se queda en opacidad 1 (sin rango de salida) */
-      animation: reveal linear both;
+    .section:not(.is-first) {
+      /* Solo rango de entrada; nunca oculta completamente el contenido por defecto */
+      animation: reveal linear;
       animation-timeline: view();
-      animation-range: entry 0% entry 30%;
+      animation-range: entry 0% entry 25%;
     }
   }
 }
 
 @keyframes reveal {
   from {
-    opacity: 0;
-    transform: translateY(12px);
+    opacity: 0.35;
+    transform: translateY(10px);
   }
   to {
     opacity: 1;

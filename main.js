@@ -78,6 +78,10 @@
         if (attr && key) node.setAttribute(attr, t(key));
       });
     });
+
+    document.querySelectorAll(".lang-opt").forEach((el) => {
+      el.classList.toggle("is-active", el.dataset.lang === state.lang);
+    });
   }
 
   /* ---------- Mini-diagrama de arquitectura ---------- */
