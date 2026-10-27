@@ -15,16 +15,16 @@
         "en": "Quotes, production, inventory and institutional orders were managed separately."
       },
       "role": {
-        "es": "Desarrollador full stack en un equipo de dos: integraciones con Odoo, portales B2B, inventario con reservas, catálogo y despliegue.",
-        "en": "Full-stack developer in a two-person team: Odoo integrations, B2B portals, inventory reservations, catalog and deployment."
+        "es": "Desarrollador full stack en un equipo de dos: arquitectura del ERP/CRM operativo, portales B2B, motor de inventario y sincronización con Odoo para ventas web.",
+        "en": "Full-stack developer in a two-person team: operational ERP/CRM architecture, B2B portals, inventory engine, and Odoo synchronization for web sales."
       },
       "impact": {
-        "es": "En uso activo por más de 10 personas entre ventas, inventario y confección: centraliza pedidos B2B e integra inventario con Odoo, con trazabilidad de cada movimiento de stock.",
-        "en": "Actively used by 10+ staff across sales, inventory, and manufacturing: centralizes B2B orders with Odoo inventory sync and full stock traceability."
+        "es": "En uso activo por más de 10 personas entre ventas, inventario y confección: centraliza la operación interna en el ERP propio y sincroniza stock con Odoo, con trazabilidad de cada movimiento.",
+        "en": "Actively used by 10+ staff across sales, inventory, and manufacturing: centralizes internal operations in the custom ERP while syncing stock with Odoo, with full movement traceability."
       },
       "challenge": {
-        "es": "Modelar y digitalizar procesos que existían solo en papel y en la cabeza de las personas — cotizaciones, reservas de stock, producción — sin interrumpir la operación diaria mientras se desarrollaba.",
-        "en": "Modeling and digitizing workflows that existed only on paper and in people's heads — quotes, stock reservations, production — without disrupting daily operations during development."
+        "es": "Diseñar la arquitectura de un ERP/CRM para toda la operación interna (cotizaciones, confección y stock físico) y sincronizarlo con Odoo, acotando este último a la venta web para evitar descalces de inventario.",
+        "en": "Architecting a custom ERP/CRM for internal operations (quoting, manufacturing, physical inventory) and synchronizing with Odoo, isolating Odoo to web sales to prevent inventory mismatches."
       },
       "stack": [
         "TypeScript",
@@ -37,9 +37,9 @@
       "arch": {
         "nodes": [
           { "id": "b2b",  "label": { "es": "Next.js Portal B2B", "en": "Next.js B2B Portal" }, "x": 0, "y": 1, "layer": "frontend" },
-          { "id": "api",  "label": { "es": "Laravel API",        "en": "Laravel API"        }, "x": 1, "y": 1, "layer": "api"      },
+          { "id": "api",  "label": { "es": "Laravel ERP API",    "en": "Laravel ERP API"    }, "x": 1, "y": 1, "layer": "api"      },
           { "id": "db",   "label": { "es": "MySQL",              "en": "MySQL"              }, "x": 2, "y": 2, "layer": "db"       },
-          { "id": "odoo", "label": { "es": "Odoo ERP",          "en": "Odoo ERP"           }, "x": 2, "y": 0, "layer": "ext"      }
+          { "id": "odoo", "label": { "es": "Odoo (ventas web)",  "en": "Odoo (web sales)"   }, "x": 2, "y": 0, "layer": "ext"      }
         ],
         "edges": [
           { "from": "b2b", "to": "api"  },
