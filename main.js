@@ -82,19 +82,16 @@
 
   /* ---------- Mini-diagrama de arquitectura ---------- */
 
-  // Colores por capa de arquitectura
-  const LAYER_COLORS = {
-    frontend: "#2F5BFF",  // azul acento
-    api:      "#111111",  // texto principal
-    db:       "#7A5200",  // naranja oscuro legible
-    ext:      "#555555",  // muted
-  };
+  // Color único para nodos — se diferencia capa con opacidad del trazo de arista
+  const NODE_COLOR = "#111111";   // texto principal, máximo contraste
+  const EDGE_COLOR = "#BBBBBB";   // gris medio, no compite con los nodos
 
-  // Grilla: columnas 0-3 → 60-420, filas 0-2 → 28-88
+  // Grilla: 4 columnas × 3 filas; viewBox con margen generoso para las etiquetas
+  // Columna central fila media → coordenadas absolutas
   const ARCH_W = 480;
-  const ARCH_H = 120;
-  const COL_X = [60, 180, 300, 420];   // x centros de cada columna
-  const ROW_Y = [28, 64, 100];          // y centros de cada fila
+  const ARCH_H = 140;
+  const COL_X = [55, 175, 305, 425];   // x centros por columna
+  const ROW_Y = [36, 70, 104];          // y centros por fila
 
   function archDiagram(arch) {
     const nodeMap = new Map(arch.nodes.map((n) => [n.id, n]));
@@ -113,12 +110,13 @@
       if (!a || !b) return;
       const x1 = COL_X[a.x], y1 = ROW_Y[a.y];
       const x2 = COL_X[b.x], y2 = ROW_Y[b.y];
-      // Bézier suave horizontal
       const mx = (x1 + x2) / 2;
       root.append(svg("path", {
         class: "arch-edge",
         d: `M${x1},${y1} C${mx},${y1} ${mx},${y2} ${x2},${y2}`,
         fill: "none",
+        stroke: EDGE_COLOR,
+        "stroke-width": "1.5",
       }));
     });
 
@@ -127,7 +125,6 @@
       const cx = COL_X[n.x];
       const cy = ROW_Y[n.y];
       const label = tr(n.label);
-      const color = LAYER_COLORS[n.layer] ?? "#555555";
 
       const g = svg("g", { class: "arch-node" });
 
@@ -135,23 +132,21 @@
       g.append(svg("circle", {
         cx,
         cy,
-        r: 6,
-        fill: color,
+        r: 5,
+        fill: NODE_COLOR,
         class: "arch-dot",
       }));
 
-      // Etiqueta: arriba si fila 0, abajo si fila 2, a la derecha si fila central (o por posición relativa)
-      const isTop = n.y === 0;
-      const isBottom = n.y === 2;
-      const textY = isTop ? cy - 11 : isBottom ? cy + 18 : cy + 18;
-      const textAnchor = "middle";
+      // Posición de la etiqueta según fila:
+      // fila 0 → encima del nodo; fila 1 → debajo; fila 2 → debajo
+      const textY = n.y === 0 ? cy - 10 : cy + 16;
 
       const textEl = svg("text", {
         x: cx,
         y: textY,
-        "text-anchor": textAnchor,
+        "text-anchor": "middle",
         class: "arch-label",
-        fill: color,
+        fill: NODE_COLOR,
       });
       textEl.textContent = label;
       g.append(textEl);
@@ -333,23 +328,34 @@
     };
     const firstId = [...links.keys()][0];
     const lastId = [...links.keys()].at(-1);
-    const atTop = () => window.scrollY < 80;
-    const atBottom = () =>
-      window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+
+    // Mapa de ratios actuales por sección; se activa la que más área visible tenga
+    const ratios = new Map([...links.keys()].map((id) => [id, 0]));
+
+    const pick = () => {
+      // Si estamos al fondo, activa el último
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) {
+        setActive(lastId);
+        return;
+      }
+      // Elige la sección con mayor ratio de intersección
+      let bestId = firstId;
+      let bestRatio = -1;
+      ratios.forEach((r, id) => {
+        if (r > bestRatio) { bestRatio = r; bestId = id; }
+      });
+      setActive(bestId);
+    };
 
     const observer = new IntersectionObserver((entries) => {
-      if (atTop()) {
-        if (firstId) setActive(firstId);
-        return;
-      }
-      if (atBottom()) {
-        if (lastId) setActive(lastId);
-        return;
-      }
       entries.forEach((entry) => {
-        if (entry.isIntersecting) setActive(entry.target.id);
+        ratios.set(entry.target.id, entry.intersectionRatio);
       });
-    }, { rootMargin: "-20% 0px -60% 0px" });
+      pick();
+    }, {
+      rootMargin: "-15% 0px -55% 0px",
+      threshold: [0, 0.1, 0.2, 0.3, 0.5, 0.75, 1.0],
+    });
 
     links.forEach((_, id) => {
       const section = document.getElementById(id);
@@ -358,11 +364,10 @@
 
     if (firstId) setActive(firstId);
 
+    // Al llegar al fondo, activa el último aunque el observer no lo reporte
     window.addEventListener("scroll", () => {
-      if (atTop()) {
-        if (firstId) setActive(firstId);
-      } else if (atBottom()) {
-        if (lastId) setActive(lastId);
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) {
+        setActive(lastId);
       }
     }, { passive: true });
   }

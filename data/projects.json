@@ -19,8 +19,8 @@
         "en": "Full-stack developer: architecture, calculation engine, API, interface and deployment."
       },
       "impact": {
-        "es": "En uso continuo en la planta por al menos 5 operadores y jefaturas: unifica el flujo del despiece al despacho, con cálculos validados contra casos reales.",
-        "en": "In daily production use by at least 5 plant operators and managers: unifies the workflow from detailing to shipping, with calculations validated against real cases."
+        "es": "En producción en planta desde oct 2026, con al menos 5 operadores y jefaturas usando el sistema: unifica el flujo del despiece al despacho, con cálculos validados contra casos reales.",
+        "en": "In production at the plant since Oct 2026, with at least 5 operators and managers using the system: unifies the workflow from detailing to shipping, with calculations validated against real cases."
       },
       "stack": [
         "TypeScript",
@@ -35,19 +35,17 @@
       },
       "arch": {
         "nodes": [
-          { "id": "ui",      "label": { "es": "React UI",         "en": "React UI"         }, "x": 0, "y": 1, "layer": "frontend" },
-          { "id": "api",     "label": { "es": "NestJS API",       "en": "NestJS API"       }, "x": 1, "y": 1, "layer": "api"      },
-          { "id": "engine",  "label": { "es": "Motor de cálculo", "en": "Calc engine"      }, "x": 2, "y": 0, "layer": "api"      },
-          { "id": "db",      "label": { "es": "MySQL",            "en": "MySQL"            }, "x": 2, "y": 2, "layer": "db"       },
-          { "id": "labels",  "label": { "es": "Etiquetas PDF",    "en": "PDF labels"       }, "x": 3, "y": 0, "layer": "api"      },
-          { "id": "docker",  "label": { "es": "Docker",           "en": "Docker"           }, "x": 3, "y": 2, "layer": "ext"      }
+          { "id": "ui",      "label": { "es": "React UI",         "en": "React UI"            }, "x": 0, "y": 1, "layer": "frontend" },
+          { "id": "api",     "label": { "es": "NestJS API",       "en": "NestJS API"          }, "x": 1, "y": 1, "layer": "api"      },
+          { "id": "engine",  "label": { "es": "Motor de cálculo", "en": "Calculation engine"  }, "x": 2, "y": 0, "layer": "api"      },
+          { "id": "db",      "label": { "es": "MySQL",            "en": "MySQL"               }, "x": 2, "y": 2, "layer": "db"       },
+          { "id": "labels",  "label": { "es": "Etiquetas PDF",    "en": "PDF labels"          }, "x": 3, "y": 0, "layer": "api"      }
         ],
         "edges": [
           { "from": "ui",     "to": "api"    },
           { "from": "api",    "to": "engine" },
           { "from": "api",    "to": "db"     },
-          { "from": "engine", "to": "labels" },
-          { "from": "api",    "to": "docker" }
+          { "from": "engine", "to": "labels" }
         ]
       }
     },
@@ -71,7 +69,7 @@
       },
       "impact": {
         "es": "En uso activo por más de 10 personas entre ventas, inventario y confección: centraliza pedidos B2B e integra inventario con Odoo, con trazabilidad de cada movimiento de stock.",
-        "en": "Actively used by 10+ staff across sales, inventory, and manufacturing: centralizes B2B orders with real-time Odoo inventory sync and stock traceability."
+        "en": "Actively used by 10+ staff across sales, inventory, and manufacturing: centralizes B2B orders with Odoo inventory sync and full stock traceability."
       },
       "stack": [
         "Next.js",
@@ -87,17 +85,15 @@
       },
       "arch": {
         "nodes": [
-          { "id": "b2b",    "label": { "es": "Next.js Portal B2B", "en": "Next.js B2B Portal" }, "x": 0, "y": 1, "layer": "frontend" },
-          { "id": "api",    "label": { "es": "Laravel API",        "en": "Laravel API"        }, "x": 1, "y": 1, "layer": "api"      },
-          { "id": "db",     "label": { "es": "MySQL",              "en": "MySQL"              }, "x": 2, "y": 2, "layer": "db"       },
-          { "id": "odoo",   "label": { "es": "Odoo ERP",          "en": "Odoo ERP"           }, "x": 2, "y": 0, "layer": "ext"      },
-          { "id": "docker", "label": { "es": "Docker",            "en": "Docker"             }, "x": 3, "y": 1, "layer": "ext"      }
+          { "id": "b2b",  "label": { "es": "Next.js Portal B2B", "en": "Next.js B2B Portal" }, "x": 0, "y": 1, "layer": "frontend" },
+          { "id": "api",  "label": { "es": "Laravel API",        "en": "Laravel API"        }, "x": 1, "y": 1, "layer": "api"      },
+          { "id": "db",   "label": { "es": "MySQL",              "en": "MySQL"              }, "x": 2, "y": 2, "layer": "db"       },
+          { "id": "odoo", "label": { "es": "Odoo ERP",          "en": "Odoo ERP"           }, "x": 2, "y": 0, "layer": "ext"      }
         ],
         "edges": [
-          { "from": "b2b",  "to": "api"    },
-          { "from": "api",  "to": "db"     },
-          { "from": "api",  "to": "odoo"   },
-          { "from": "api",  "to": "docker" }
+          { "from": "b2b", "to": "api"  },
+          { "from": "api", "to": "db"   },
+          { "from": "api", "to": "odoo" }
         ]
       }
     },
@@ -137,20 +133,18 @@
       },
       "arch": {
         "nodes": [
-          { "id": "meli",    "label": { "es": "Mercado Libre API",  "en": "Mercado Libre API"  }, "x": 0, "y": 1, "layer": "ext"      },
-          { "id": "worker",  "label": { "es": "Laravel worker",     "en": "Laravel worker"     }, "x": 1, "y": 1, "layer": "api"      },
-          { "id": "cache",   "label": { "es": "Caché DB",           "en": "Cache DB"           }, "x": 2, "y": 0, "layer": "db"       },
-          { "id": "mysql",   "label": { "es": "MySQL",              "en": "MySQL"              }, "x": 2, "y": 2, "layer": "db"       },
-          { "id": "dash",    "label": { "es": "Dashboard React",    "en": "React dashboard"    }, "x": 3, "y": 0, "layer": "frontend" },
-          { "id": "aws",     "label": { "es": "AWS",                "en": "AWS"                }, "x": 3, "y": 2, "layer": "ext"      }
+          { "id": "meli",   "label": { "es": "Mercado Libre API", "en": "Mercado Libre API" }, "x": 0, "y": 1, "layer": "ext"      },
+          { "id": "worker", "label": { "es": "Laravel worker",    "en": "Laravel worker"    }, "x": 1, "y": 1, "layer": "api"      },
+          { "id": "cache",  "label": { "es": "Caché DB",          "en": "Cache DB"          }, "x": 2, "y": 0, "layer": "db"       },
+          { "id": "mysql",  "label": { "es": "MySQL",             "en": "MySQL"             }, "x": 2, "y": 2, "layer": "db"       },
+          { "id": "dash",   "label": { "es": "Dashboard React",   "en": "React dashboard"   }, "x": 3, "y": 1, "layer": "frontend" }
         ],
         "edges": [
           { "from": "meli",   "to": "worker" },
           { "from": "worker", "to": "cache"  },
           { "from": "worker", "to": "mysql"  },
           { "from": "cache",  "to": "dash"   },
-          { "from": "mysql",  "to": "dash"   },
-          { "from": "worker", "to": "aws"    }
+          { "from": "mysql",  "to": "dash"   }
         ]
       }
     }
